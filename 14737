@@ -1,0 +1,21 @@
+const Discord = require('discord.js');
+const bot = new Discord.Client();
+const token = 'yourbottoken'
+const prefix = ('u!','U!');
+
+bot.on('ready', () => {
+    console.log('your bot is now online.')
+})
+
+bot.on("message", message => {
+    if(message.author.bot) return;
+    
+    const args = message.content.slice(prefix.length).trim()split(/ +/g);
+    const command = args.shift().toLocaleLowerCase();
+    
+    if(command === 'ping'){
+        message.reply('pong🏓');
+    }
+})
+
+bot.login(token);
